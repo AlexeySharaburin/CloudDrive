@@ -1,0 +1,53 @@
+version: "5.0"
+
+services:
+
+  #  front:
+  #    image: cloud_front
+  #    container_name: cloud_front
+  #    ports:
+  #      - 8081:8080
+
+  front:
+#    image: cloud_front
+    build:
+      context: front/netology-diplom-frontend
+      dockerfile: Dockerfile
+    container_name: cloud_front
+    ports:
+      - 8081:8080
+
+  app:
+#    image: cloud_drive:5.0
+    build:
+          context: ./
+          dockerfile: Dockerfile
+    container_name: cloud_drive
+    ports:
+      - 8080:8080
+    volumes:
+      - /Users:/Users/
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db/cloud_drive
+
+  db:
+    image: postgres
+    container_name: cloud_db
+    ports:
+      - 5433:5432
+    volumes:
+      - ./postgres_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: alexey
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: cloud_drive
+
+#Cloud_drive:5.0 версия с тестами 15.05
+#cloud_drive:2:0: general.path = /Users/alexey/Desktop/CloudDrive/cloud_drive/drives + /downloads + Multipart/(1) + delete
+#cloud_drive:3:0: general.path = /Users/alexey/Desktop/CloudDrive/cloud_drive/drives + /downloads + Multipart/(1) + undelete(mark)
+#cloud_service: general.path = /Users/alexey/Desktop/Netology Java/Java Diplom/cloud_service/cloud_drive
+#cloud_service:2.0: general.path = /Users/alexey/Desktop/Cloud
+#cloud_service:3.0: general.path = /Users/alexey/Desktop/Cloud + /Downloads
+#cloud_service:4.0: general.path = /Users/alexey/Desktop/Cloud + /Downloads + Multipart/(1) + delete

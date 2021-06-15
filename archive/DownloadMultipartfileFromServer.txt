@@ -1,0 +1,102 @@
+#@Controller
+
+//    @GetMapping("/file")
+//    public ResponseEntity<MultipartFile> downloadFile(@RequestHeader("auth-token") String authToken, @RequestParam("filename") String filename) throws IOException {
+//        MultipartFile downloadedFile = cloudFilesService.downloadFileFromServer(authToken, filename);
+//        System.out.println("Controller_download. Success download file " + filename);
+//
+//        return new ResponseEntity<>(downloadedFile, HttpStatus.OK);
+//    }
+
+#@Service
+
+//    public MultipartFile downloadFileFromServer(String authToken, String filename) throws IOException {
+//        long userId = getUserId(authToken);
+//        MultipartFile downloadedFile = cloudServiceRepository.downloadFileFromServer(userId, filename);
+//        if (downloadedFile != null) {
+//            System.out.println("Service_download. Success download file " + filename);
+//            return downloadedFile;
+//        }
+//        return null;
+//    }
+
+#@Repository
+
+  @Bean
+    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(mapper);
+        return converter;
+    }
+
+//    public MultipartFile downloadFileFromServer(long userId, String filename) {
+//        if (!existFileStorage(userId, filename)) {
+//            System.out.println("File not found");
+//            throw new ErrorUploadFile("Error download file");
+//        }
+//
+//        String downloadPathUser = downloadUserPath + File.separator;
+//
+//        String checkNameDownloadedUserFile = checkFilenameFolder(downloadPathUser, filename);
+//        String pathFile = getAbsolutePathFile(userId, filename);
+//
+//        try (var fin = new FileInputStream(pathFile);
+//             var bis = new BufferedInputStream(fin, 1024);
+//             var outUser = new FileOutputStream(downloadPathUser + checkNameDownloadedUserFile);
+//             var bosUser = new BufferedOutputStream(outUser, 1024)
+//        ) {
+//            int i;
+//            System.out.println("Loading file...");
+//            while ((i = bis.read()) != -1) {
+//                bosUser.write(i);
+//            }
+//            System.out.println("Repository_download. Success download file " + filename);
+//            return convertFiletoMultiPart(pathFile);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
+//    // DownloadMultipartFileFromServerToFront - v.1
+//    public MultipartFile convertFiletoMultiPart(String pathFile) throws IOException {
+//        File file = new File(pathFile);
+//        System.out.println("Path: " + file.toPath());
+//        FileItem fileItem;
+//        fileItem = new DiskFileItem("mainFile",
+//                Files.probeContentType(file.toPath()),
+//                false,
+//                file.getName(),
+//                (int) file.length(),
+//                file.getParentFile());
+//        try (InputStream input = new FileInputStream(file);
+//             OutputStream os = fileItem.getOutputStream()) {
+//            IOUtils.copy(input, os);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        fileItem.getOutputStream();
+//        System.out.println("FileItem: " + fileItem.toString());
+//        return new CommonsMultipartFile(fileItem);
+//    }
+
+//    // DownloadMultipartFileFromServerToFront - v.2
+//    public MultipartFile convertFiletoMultiPart(String pathFile) throws IOException {
+//        MultipartFile multipartFile = null;
+//        try {
+//            File file = new File(pathFile);
+//            if (file.exists()) {
+//                System.out.println("File Exist => " + file.getName() + " :: " + file.getAbsolutePath());
+//            }
+//            FileInputStream input = new FileInputStream(file);
+//            multipartFile = new MockMultipartFile("file", file.getName(), "text/plain",
+//                    IOUtils.toByteArray(input));
+//            System.out.println("multipartFile => " + multipartFile.isEmpty() + " :: "
+//                    + multipartFile.getOriginalFilename() + " :: " + multipartFile.getName() + " :: "
+//                    + multipartFile.getSize() + " :: " + multipartFile.getBytes());
+//        } catch (IOException e) {
+//            System.out.println("Exception => " + e.getLocalizedMessage());
+//        }
+//        return multipartFile;
+//    }

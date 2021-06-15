@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="002" author="Alexey">
+        <insert tableName="storage">
+            <column name="user_id" value="1"/>
+            <column name="is_exist" value="true"/>
+            <column name="filename" value="0000001.txt"/>
+            <column name="file_size" value="7000"/>
+        </insert>
+        <insert tableName="storage">
+            <column name="user_id" value="1"/>
+            <column name="is_exist" value="true"/>
+            <column name="filename" value="0000002.txt"/>
+            <column name="file_size" value="5000"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

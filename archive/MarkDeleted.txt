@@ -1,0 +1,21 @@
+#@Repository
+
+//    //delete - пометить файл как удалённый
+//    public Boolean deleteFile(String filename, long userId) {
+//        if (!existFileStorage(userId, filename)) {
+//            System.out.println("File not found");
+//            throw new ErrorDeleteFile("Error delete file");
+//        }
+//        Storage currentStorage = storageRepository.findByFilenameAndUserId(filename, userId);
+//        File currentFile = new File(getAbsolutePathFile(userId, filename));
+//        File deletedFile = new File(getAbsolutePathFile(userId, filename) + "_deleted at " + new Date());
+//        currentFile.renameTo(deletedFile);
+//        currentStorage.setIsExist(false);
+//        currentStorage.setFilename(filename + "_deleted at " + new Date());
+//        if (!currentStorage.getIsExist()) {
+//            System.out.println("Repo_deleted. Deleted");
+//            return true;
+//        }
+//        System.out.println("Repo_deleted. No deleted");
+//        return false;
+//    }
