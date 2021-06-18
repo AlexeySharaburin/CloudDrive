@@ -11,7 +11,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.netology.cloud_drive.component.JwtTokenUtil;
 import ru.netology.cloud_drive.model.AuthRequest;
-
 import java.util.Collection;
 import java.util.Map;
 
@@ -83,6 +82,7 @@ public class CloudAuthenticationServiceTest {
         Mockito.when(jwtTokenUtilMock.generateToken(testUserDetails))
                 .thenReturn(testAuthToken);
     }
+
     @Test
     void testCreateAuthenticationTokenCloudAuthenticationService() throws Exception {
         mockCreate();
@@ -93,9 +93,10 @@ public class CloudAuthenticationServiceTest {
 
     @Before
     public void mockAuth() {
-        Mockito.when(authenticationManagerMock.authenticate(new UsernamePasswordAuthenticationToken(testUsername,testPassword)))
+        Mockito.when(authenticationManagerMock.authenticate(new UsernamePasswordAuthenticationToken(testUsername, testPassword)))
                 .thenReturn(testUPAT);
     }
+
     @Test
     void testAuthenticateCloudAuthenticationService() {
         mockAuth();
@@ -109,6 +110,7 @@ public class CloudAuthenticationServiceTest {
         Mockito.when(tokenRepositoryMock.remove(testAuthTokenSplit))
                 .thenReturn(testUsername);
     }
+
     @Test
     void testRemoveTokenCloudAuthenticationService() {
         mockRemove();
@@ -122,6 +124,7 @@ public class CloudAuthenticationServiceTest {
         Mockito.when(tokenRepositoryMock.get(testAuthTokenSplit))
                 .thenReturn(testUsername);
     }
+
     @Test
     void testGetUsernameByTokenFromMapCloudAuthenticationService() {
         mockGet();

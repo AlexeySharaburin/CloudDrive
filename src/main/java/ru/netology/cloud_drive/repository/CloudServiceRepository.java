@@ -1,18 +1,9 @@
 package ru.netology.cloud_drive.repository;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItem;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import ru.netology.cloud_drive.CloudDriveApplication;
 import ru.netology.cloud_drive.exception.ErrorDeleteFile;
 import ru.netology.cloud_drive.exception.ErrorUnauthorized;
 import ru.netology.cloud_drive.exception.ErrorUploadFile;
@@ -22,7 +13,6 @@ import ru.netology.cloud_drive.model.UserData;
 
 import javax.transaction.Transactional;
 import java.io.*;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -57,10 +47,6 @@ public class CloudServiceRepository {
         this.downloadUserPath = downloadUserPath;
     }
 
-//    private String generalPath = "/Users/alexey/Desktop/CloudDrive/cloud_drive/drives";
-//    private String downloadUserPath = "/Users/alexey/Desktop/CloudDrive/cloud_drive/downloads";
-
-
     public UserData getUserByUsername(String username) {
         UserData currentUser = userDataRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
         if (currentUser.getIsEnable()) {
@@ -92,17 +78,11 @@ public class CloudServiceRepository {
         return files;
     }
 
-//    public Boolean saveFile(Storage storage) {
-//        storageRepository.save(storage);
-//        return true;
-//    }
-
     public Boolean saveFile(Storage storage) {
         var newStorage = storageRepository.save(storage);
         return newStorage != null;
     }
 
-    // delete - удалить файл
     public Boolean deleteFile(String filename, long userId) {
         if (!existFileStorage(userId, filename)) {
             System.out.println("File not found");
@@ -164,9 +144,7 @@ public class CloudServiceRepository {
                     .fileSize(file.getSize())
                     .build();
             saveFile(newFile);
-//            if (saveFile(newFile)) {
-                return true;
-//            }
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -272,212 +250,7 @@ public class CloudServiceRepository {
     public String getAbsolutePathFile(long userId, String filename) {
         return generalPath + File.separator + getLocalDataPath(userId) + File.separator + filename;
     }
-
 }
 
-///////////////////////////////////////////////
-
-//    public String renameFile(String currentFilename, String newFilename, long userId) {
-//        Storage currentStorage = storageRepository.findByFilenameAndUserId(currentFilename, userId);
-//        UserData currentUser = userDataRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
-//        if (!existFileStorage(userId, currentFilename)) {
-//            System.out.println("File not found");
-//            throw new ErrorUploadFile("Error upload file");
-//        }
-//        if (currentStorage.getIsExist() && (currentUser != null)) {
-//            File currentFile = new File(getAbsolutePathFile(userId, currentFilename));
-//            File newFile = new File(getAbsolutePath(userId) + File.separator + newFilename);
-//            if (currentFile.renameTo(newFile)) {
-//                currentStorage.setFilename(newFilename);
-//                return newFilename;
-//            }
-//        }
-//        return null;
-//    }
-
-//    public List<FileRequest> getAllFiles(String username, int limit) {
-//        System.out.println("Repo_listFiles. Username: " + username);
-//        long userId = getUser(username).getId();
-////        System.out.println("UserId: " + userId);
-//        return getFilenamesFromStorage(userId)
-//                .stream()
-//                .limit(limit)
-//                .sorted(Comparator.naturalOrder())
-//                .collect(Collectors.toList());
-//    }
-
-
-//        return listStorage.stream()
-//                .filter(x -> x.getIsExist())
-//                .map(Storage::getFileName)
-//                .sorted(Comparator.naturalOrder())
-//                .collect(Collectors.toList());
-
-//    public File makeUploadedFile(long userId, String filename) {
-//        List<FileRequest> files = getFilenamesFromStorage(userId);
-//        int i = 0;
-//        if (existFile(files, filename)) {
-//            while (true) {
-//                i++;
-//                filename = filename + "_" + i;
-//                if (!existFile(files, filename)) {
-//                    break;
-//                }
-//            }
-//        }
-//        String dataPath = getAbsolutePath(userId);
-//        String filePath = getAbsolutePathFile(userId, filename);
-//        File directoryOfUser = new File(dataPath);
-//        System.out.println("Service_upload. Path: " + filePath);
-//        if (!directoryOfUser.exists()) {
-//            directoryOfUser.mkdirs();
-//        }
-//        return new File(filePath);
-//    }
-
-
-//    public File makeUploadedFile(long userId, String filename) {
-////        List<FileRequest> files = getFilenamesFromStorage(userId);
-////        int i = 0;
-////        if (existFile(files, filename)) {
-////            while (true) {
-////                i++;
-////                filename = filename + "_" + i;
-////                if (!existFile(files, filename)) {
-////                    break;
-////                }
-////            }
-////        }
-//        String checkedFilename = checkFilename(filename);
-//        String dataPath = getAbsolutePath(userId);
-//        String pathFile = getAbsolutePathFile(userId, checkedFilename);
-//        File directoryOfUser = new File(dataPath);
-//        System.out.println("Service_upload. Path: " + pathFile);
-//        if (!directoryOfUser.exists()) {
-//            directoryOfUser.mkdirs();
-//        }
-//        return new File(pathFile);
-//    }
-
-//@Repository
-//@Transactional
-//public class CloudServiceRepository {
-//
-//    //    @Autowired
-//    private final UserDataRepository userDataRepository;
-//
-//    //    @Autowired
-//    private final StorageRepository storageRepository;
-//
-//    public CloudServiceRepository(UserDataRepository userDataRepository, StorageRepository storageRepository) {
-//        this.userDataRepository = userDataRepository;
-//        this.storageRepository = storageRepository;
-//    }
-//
-////    private final String generalPath = "/Users/alexey/Desktop/Cloud";
-//
-//    @Value("${general.path}")
-//    private String generalPath;
-//
-//    public UserData getUser(String username) {
-//        UserData currentUser = userDataRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
-//        if (currentUser.getIsEnable()) {
-//            return currentUser;
-//        } else {
-//            System.out.println("User not found");
-//            return null;
-//        }
-//
-//    }
-//
-//    public List<FileRequest> getFilenamesFromStorage(long userId) {
-//        List<Storage> listStorage = storageRepository.findByUserIdAndIsExist(userId, true);
-//        List<FileRequest> files = new ArrayList<>();
-//        for (Storage storage : listStorage) {
-//            if (storage.getIsExist()) {
-//                files.add(new FileRequest(storage.getFilename(), storage.getFileSize()));
-//            }
-//        }
-//        return files;
-//    }
-//
-//    public String getLocalDataPath(long userId) {
-//        UserData currentUser = userDataRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
-//        return currentUser.getDataPath();
-//    }
-//
-//    public Boolean saveFile(Storage storage) {
-//        var newStorage = storageRepository.save(storage);
-//        return newStorage != null;
-////        if (newStorage != null) {
-////            return true;
-////        }
-////        return false;
-//    }
-//
-//    //delete - пометить файл как удалённый
-//    public Boolean deleteFile(String filename, long currentUserId) {
-//        Storage currentStorage = storageRepository.findByFilenameAndUserId(filename, currentUserId);
-//        UserData currentUser = userDataRepository.findById(currentUserId).orElseThrow(IllegalArgumentException::new);
-//
-//        String dataPath = generalPath + File.separator + currentUser.getDataPath();
-//        String pathFile = dataPath + File.separator + filename;
-//        String deleted = "_deleted at " + new Date();
-//        File currentFile = new File(pathFile);
-//        File deletedFile = new File(pathFile + deleted);
-//        currentFile.renameTo(deletedFile);
-//        currentStorage.setIsExist(false);
-//        currentStorage.setFilename(filename + deleted);
-//        if (!currentStorage.getIsExist()) {
-//            System.out.println("Repo_deleted. Deleted");
-//            return true;
-//        }
-//        System.out.println("Repo_deleted. No deleted");
-//        return false;
-//    }
-//
-//    // delete - удалить файл
-////    public Boolean deleteFile(String filename, long currentUserId) {
-////        Storage currentStorage = storageRepository.findByFilenameAndUserId(filename, currentUserId);
-////        UserData currentUser = userDataRepository.findById(currentUserId).orElseThrow(IllegalArgumentException::new);
-////        long currentId = currentStorage.getId();
-////        System.out.println("Repo_deleted. Id " + currentId);
-////
-////        String dataPath = generalPath + File.separator + currentUser.getDataPath();
-////        String pathFile = dataPath + File.separator + filename;
-////        File currentFile = new File(pathFile);
-////
-////        storageRepository.deleteById(currentId);
-////        if (!storageRepository.existsById(currentId)&&currentFile.delete()) {
-////            System.out.println("Repo_deleted. Deleted");
-////            return true;
-////        }
-////        System.out.println("Repo_deleted. No deleted");
-////        return false;
-////    }
-//
-//
-//    public String renameFile(String currentFilename, String newFilename, long currentUserId, String username) {
-//        Storage currentStorage = storageRepository.findByFilenameAndUserId(currentFilename, currentUserId);
-//        UserData currentUser = getUser(username);
-//
-//        if (currentStorage.getIsExist() && (currentUser != null)) {
-//
-//            String dataPath = generalPath + File.separator + currentUser.getDataPath();
-//            String pathFile = dataPath + File.separator + currentFilename;
-//            String pathNewFile = dataPath + File.separator + newFilename;
-//
-//            File currentFile = new File(pathFile);
-//            File newFile = new File(pathNewFile);
-//
-//            if (currentFile.renameTo(newFile)) {
-//                currentStorage.setFilename(newFilename);
-//                return newFilename;
-//            }
-//        }
-//        return null;
-//    }
-//
-//}
 
 

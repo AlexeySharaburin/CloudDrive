@@ -230,17 +230,14 @@ public class CloudServiceRepositoryTest {
     @Test
     void testGetAbsolutePathCloudServiceRepository() {
         String result = cloudServiceRepository.getAbsolutePath(testId);
-//        String result = testGeneralPath + File.separator + cloudServiceRepository.getLocalDataPath(testId);
         String expected = testAbsolutePath;
         Assertions.assertEquals(expected, result);
     }
 
     @Test
     void testGetAbsolutePathFileCloudServiceRepository() {
-        String result = cloudServiceRepository.getAbsolutePathFile(testId,testFilename_1);
-//        String result = testGeneralPath + File.separator + cloudServiceRepository.getLocalDataPath(testId) + File.separator + testFilename_1;
+        String result = cloudServiceRepository.getAbsolutePathFile(testId, testFilename_1);
         String expected = testFilePath;
         Assertions.assertEquals(expected, result);
     }
-
 }

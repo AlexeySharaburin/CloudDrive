@@ -52,6 +52,7 @@ public class CloudFilesServiceTest {
         Mockito.when(cloudServiceRepositoryMock.getFilenamesFromStorage(testId))
                 .thenReturn(testListFiles);
     }
+
     @Test
     void testGetAllFilesCloudFilesService() {
         mockBeforeGetAllFiles();
@@ -65,6 +66,7 @@ public class CloudFilesServiceTest {
         Mockito.when(cloudServiceRepositoryMock.uploadFile(testMultipartFile, testId, testFilename))
                 .thenReturn(true);
     }
+
     @Test
     void testUploadFileCloudFilesService() throws IOException {
         mockUploadFile();
@@ -78,6 +80,7 @@ public class CloudFilesServiceTest {
         Mockito.when(cloudServiceRepositoryMock.deleteFile(testFilename, testId))
                 .thenReturn(true);
     }
+
     @Test
     void testDeleteFileCloudFilesService() {
         mockDeleteFile();
@@ -91,6 +94,7 @@ public class CloudFilesServiceTest {
         Mockito.when(cloudServiceRepositoryMock.renameFile(testFilename, testNewFilename, testId))
                 .thenReturn(true);
     }
+
     @Test
     void testRenameFileCloudFilesService() throws IOException {
         mockRenameFile();
@@ -104,6 +108,7 @@ public class CloudFilesServiceTest {
         Mockito.when(cloudServiceRepositoryMock.downloadFileFromServer(testId, testFilename))
                 .thenReturn(true);
     }
+
     @Test
     void testDownloadFileCloudFilesService() {
         mockDownloadFile();

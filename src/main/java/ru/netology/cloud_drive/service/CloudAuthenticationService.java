@@ -11,7 +11,6 @@ import ru.netology.cloud_drive.component.JwtTokenUtil;
 import ru.netology.cloud_drive.exception.ErrorBadCredentials;
 import ru.netology.cloud_drive.exception.ErrorUnauthorized;
 import ru.netology.cloud_drive.model.AuthRequest;
-import ru.netology.cloud_drive.model.AuthToken;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -45,22 +44,10 @@ public class CloudAuthenticationService {
         String username = authRequest.getLogin();
         authenticate(username, authRequest.getPassword());
         final UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(username);
-//        System.out.println(userDetails.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
         tokenRepository.put(token, username);
         return token;
     }
-
-//    private void authenticate(String username, String password) {
-//        try {
-//            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-//        } catch (DisabledException e) {
-//            throw new ErrorUnauthorized("Unauthorized error");
-//        } catch (BadCredentialsException e) {
-//            throw new ErrorBadCredentials("Bad Credentials");
-//        }
-//    }
-
 
     public Boolean authenticate(String username, String password) {
         Boolean result = false;

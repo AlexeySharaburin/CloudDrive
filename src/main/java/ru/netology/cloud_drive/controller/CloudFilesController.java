@@ -115,25 +115,3 @@ public class CloudFilesController {
         return new ResponseEntity<>(new ExceptionResponse(e.getMessage(), 500), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    @PutMapping("/file")
-//    public ResponseEntity<String> renameFile(@RequestHeader("auth-token") String authToken, @RequestParam("filename") String currentFilename, @RequestBody NewFilename filename) {
-//        String frontNewFilename = filename.getFilename();
-//        System.out.println("Controller_renameFiles. FileName: " + frontNewFilename);
-//        String newFilename = cloudFilesService.renameFile(authToken, currentFilename, frontNewFilename);
-//        return (newFilename != null)
-//                ? new ResponseEntity<>("Success upload from" + currentFilename + " to " + newFilename, HttpStatus.OK)
-//                : new ResponseEntity<>("Error input data", HttpStatus.BAD_REQUEST);
-//    }

@@ -2,7 +2,6 @@ package ru.netology.cloud_drive.controller;
 
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.HttpStatus;
@@ -33,8 +32,6 @@ public class CloudFilesControllerTest {
     NewFilename testNFN = new NewFilename(testNewFilename);
     List<FileRequest> testListFiles = addFiles();
 
-
-
     public static List<FileRequest> addFiles() {
         List<FileRequest> listFiles = new ArrayList<>();
         listFiles.add(new FileRequest("testFile1.txt", 2000));
@@ -48,6 +45,7 @@ public class CloudFilesControllerTest {
         Mockito.when(cloudFilesServiceMock.getAllFiles(testAuthToken, testLimit))
                 .thenReturn(testListFiles);
     }
+
     @Test
     void testListCloudFilesController() {
         mockListFiles();
@@ -61,6 +59,7 @@ public class CloudFilesControllerTest {
         Mockito.when(cloudFilesServiceMock.uploadFileToServer(testAuthToken, testFilename, testMultipartFileMock))
                 .thenReturn(true);
     }
+
     @Test
     void testUploadFileToServerCloudFilesController() throws Exception {
         mockUploadFile();
@@ -74,6 +73,7 @@ public class CloudFilesControllerTest {
         Mockito.when(cloudFilesServiceMock.deleteFile(testAuthToken, testFilename))
                 .thenReturn(true);
     }
+
     @Test
     void testDeleteFileCloudFilesController() {
         mockDeleteFile();
@@ -87,6 +87,7 @@ public class CloudFilesControllerTest {
         Mockito.when(cloudFilesServiceMock.renameFile(testAuthToken, testFilename, testNewFilename))
                 .thenReturn(true);
     }
+
     @Test
     void testRenameFileCloudFilesController() {
         mockRenameFile();
@@ -100,6 +101,7 @@ public class CloudFilesControllerTest {
         Mockito.when(cloudFilesServiceMock.downloadFileFromServer(testAuthToken, testFilename))
                 .thenReturn(true);
     }
+
     @Test
     void testDownloadFileCloudFilesController() throws IOException {
         mockDownloadFile();
