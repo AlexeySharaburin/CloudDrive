@@ -8,8 +8,8 @@ public class CloudDriveApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CloudDriveApplication.class, args);
-        System.out.println("CloudDrive is running!");
         System.out.println("Willkomen zum CloudDrive!");
+        System.out.println("CloudDrive is running...");
     }
 
 }
