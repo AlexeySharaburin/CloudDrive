@@ -1,5 +1,7 @@
 package ru.netology.cloud_drive.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,8 @@ import java.util.List;
 @RequestMapping("/")
 public class CloudFilesController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CloudFilesController.class);
+
     private final CloudFilesService cloudFilesService;
 
     public CloudFilesController(CloudFilesService cloudFilesService) {
@@ -26,7 +30,6 @@ public class CloudFilesController {
     @GetMapping("/list")
     public ResponseEntity<List<FileRequest>> getAllFiles(@RequestHeader("auth-token") String authToken, @RequestParam("limit") int limit) {
         final List<FileRequest> files = cloudFilesService.getAllFiles(authToken, limit);
-        files.forEach(System.out::println);
         return !files.isEmpty()
                 ? new ResponseEntity<>(files, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -51,7 +54,7 @@ public class CloudFilesController {
     @PutMapping("/file")
     public ResponseEntity<String> renameFile(@RequestHeader("auth-token") String authToken, @RequestParam("filename") String currentFilename, @RequestBody NewFilename filename) {
         String frontNewFilename = filename.getFilename();
-        System.out.println("Controller_renameFiles. FileName: " + frontNewFilename);
+        LOGGER.info("Controller_renameFiles. FileName {}", frontNewFilename);
         Boolean successRename = cloudFilesService.renameFile(authToken, currentFilename, frontNewFilename);
         return successRename
                 ? new ResponseEntity<>("Success upload from" + currentFilename + " to " + frontNewFilename, HttpStatus.OK)

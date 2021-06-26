@@ -1,7 +1,11 @@
 package ru.netology.cloud_drive.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import ru.netology.cloud_drive.CloudDriveApplication;
+import ru.netology.cloud_drive.controller.CloudFilesController;
 import ru.netology.cloud_drive.exception.ErrorUnauthorized;
 import ru.netology.cloud_drive.model.FileRequest;
 import ru.netology.cloud_drive.repository.CloudServiceRepository;
@@ -16,6 +20,8 @@ public class CloudFilesService {
 
     private final CloudServiceRepository cloudServiceRepository;
     private final CloudAuthenticationService cloudAuthenticationService;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CloudFilesService.class);
 
     public CloudFilesService(CloudServiceRepository cloudServiceRepository, CloudAuthenticationService cloudAuthenticationService) {
         this.cloudServiceRepository = cloudServiceRepository;
@@ -39,11 +45,11 @@ public class CloudFilesService {
     public Boolean uploadFileToServer(String authToken, String filename, MultipartFile file) throws IOException {
         long userId = getUserId(authToken);
         if (file.isEmpty()) {
-            System.out.println("File not found");
+            LOGGER.error("File not found");
             throw new ErrorUnauthorized("Error input data");
         }
         if (cloudServiceRepository.uploadFile(file, userId, filename)) {
-            System.out.println("Service_upload. Success upload " + filename);
+            LOGGER.info("Service_upload. Success upload {}", filename);
             return true;
         }
         return false;
@@ -52,7 +58,7 @@ public class CloudFilesService {
     public Boolean deleteFile(String authToken, String filename) {
         long userId = getUserId(authToken);
         if (cloudServiceRepository.deleteFile(filename, userId)) {
-            System.out.println("Service_delete. Success deleted " + filename);
+            LOGGER.info("Service_delete. Success deleted {}", filename);
             return true;
         }
         return false;
@@ -61,7 +67,7 @@ public class CloudFilesService {
     public Boolean renameFile(String authToken, String currentFilename, String newFilename) {
         long userId = getUserId(authToken);
         if (cloudServiceRepository.renameFile(currentFilename, newFilename, userId)) {
-            System.out.println("Service_rename. Success rename file " + newFilename);
+            LOGGER.info("Service_rename. Success rename file {}", newFilename);
             return true;
         }
         return false;
@@ -70,7 +76,7 @@ public class CloudFilesService {
     public boolean downloadFileFromServer(String authToken, String filename) {
         long userId = getUserId(authToken);
         if (cloudServiceRepository.downloadFileFromServer(userId, filename)) {
-            System.out.println("Service_download. Success download file " + filename);
+            LOGGER.info("Service_download. Success download file {}", filename);
             return true;
         }
         return false;

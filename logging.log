@@ -1,0 +1,180 @@
+26.06.2021 13:54:22.453 [main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [ru.netology.cloud_drive.CloudDriveApplicationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+26.06.2021 13:54:22.458 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [ru.netology.cloud_drive.CloudDriveApplicationTest]: CloudDriveApplicationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+26.06.2021 13:54:22.565 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration ru.netology.cloud_drive.CloudDriveApplication for test class ru.netology.cloud_drive.CloudDriveApplicationTest
+26.06.2021 13:54:22.670 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+26.06.2021 13:54:22.693 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@129b4fe2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5af3a0f, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@19ae6bb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@10993713, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@58359ebd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@24b6b8f6, org.springframework.test.context.transaction.TransactionalTestExecutionListener@72cf2de5, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2bb7bd00, org.springframework.test.context.event.EventPublishingTestExecutionListener@5f031ebd, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4ee37ca3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@45c8d09f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@53812a9b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@14b030a0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@41e350f1, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@422c3c7a]
+26.06.2021 13:54:22.827 [testcontainers-lifecycle-0] INFO  o.t.d.DockerClientProviderStrategy - Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+26.06.2021 13:54:23.777 [testcontainers-lifecycle-0] INFO  o.t.d.DockerClientProviderStrategy - Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+26.06.2021 13:54:23.779 [testcontainers-lifecycle-0] INFO  o.t.DockerClientFactory - Docker host IP address is localhost
+26.06.2021 13:54:23.840 [testcontainers-lifecycle-0] INFO  o.t.DockerClientFactory - Connected to docker: 
+  Server Version: 20.10.5
+  API Version: 1.41
+  Operating System: Docker Desktop
+  Total Memory: 1987 MB
+26.06.2021 13:54:23.844 [testcontainers-lifecycle-0] INFO  o.t.u.ImageNameSubstitutor - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+26.06.2021 13:54:24.151 [testcontainers-lifecycle-0] INFO  o.t.u.RegistryAuthLocator - Credential helper/store (docker-credential-desktop) does not have credentials for index.docker.io
+26.06.2021 13:54:26.071 [testcontainers-lifecycle-0] INFO  o.t.DockerClientFactory - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+26.06.2021 13:54:26.072 [testcontainers-lifecycle-0] INFO  o.t.DockerClientFactory - Checking the system...
+26.06.2021 13:54:26.072 [testcontainers-lifecycle-0] INFO  o.t.DockerClientFactory - ✔︎ Docker server version should be at least 1.6.0
+26.06.2021 13:54:26.286 [testcontainers-lifecycle-0] INFO  o.t.DockerClientFactory - ✔︎ Docker environment should have more than 2GB free disk space
+26.06.2021 13:54:26.334 [testcontainers-lifecycle-0] INFO  🐳 [postgres:latest] - Creating container for image: postgres:latest
+26.06.2021 13:54:30.409 [testcontainers-lifecycle-0] INFO  🐳 [postgres:latest] - Starting container with ID: d5fbbd197da3366c2ccf6099dfee4589b4ec69645ffd6b60d879c806840b4831
+26.06.2021 13:54:33.873 [testcontainers-lifecycle-0] INFO  🐳 [postgres:latest] - Container postgres:latest is starting: d5fbbd197da3366c2ccf6099dfee4589b4ec69645ffd6b60d879c806840b4831
+26.06.2021 13:54:35.933 [testcontainers-lifecycle-0] INFO  🐳 [postgres:latest] - Container postgres:latest started in PT9.645454S
+26.06.2021 13:54:35.935 [testcontainers-lifecycle-1] INFO  🐳 [cloud_drive_app:latest] - Creating container for image: cloud_drive_app:latest
+26.06.2021 13:54:36.067 [testcontainers-lifecycle-1] INFO  🐳 [cloud_drive_app:latest] - Starting container with ID: 5441cf6f7a19a94014586ab40d990281e43ac0e1d224dd13eaffcbea4e97e642
+26.06.2021 13:54:39.399 [testcontainers-lifecycle-1] INFO  🐳 [cloud_drive_app:latest] - Container cloud_drive_app:latest is starting: 5441cf6f7a19a94014586ab40d990281e43ac0e1d224dd13eaffcbea4e97e642
+26.06.2021 13:54:58.721 [testcontainers-lifecycle-1] INFO  🐳 [cloud_drive_app:latest] - Container cloud_drive_app:latest started in PT22.787176S
+26.06.2021 13:54:58.723 [main] INFO  🐳 [cloud_drive_front:latest] - Creating container for image: cloud_drive_front:latest
+26.06.2021 13:54:58.789 [main] INFO  🐳 [cloud_drive_front:latest] - Starting container with ID: f5b00bac66e3bfec0bdbd414d4825d5ff2dc5eae20595201e929e68b8f96a70f
+26.06.2021 13:55:03.671 [main] INFO  🐳 [cloud_drive_front:latest] - Container cloud_drive_front:latest is starting: f5b00bac66e3bfec0bdbd414d4825d5ff2dc5eae20595201e929e68b8f96a70f
+26.06.2021 13:55:09.623 [main] INFO  🐳 [cloud_drive_front:latest] - Container cloud_drive_front:latest started in PT10.901096S
+26.06.2021 13:55:10.135 [background-preinit] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+26.06.2021 13:55:10.201 [main] INFO  r.n.c.CloudDriveApplicationTest - Starting CloudDriveApplicationTest using Java 14.0.2 on MacBook-Pro-Alexey.local with PID 2826 (started by alexey in /Users/alexey/Desktop/CloudDrive/cloud_drive)
+26.06.2021 13:55:10.204 [main] INFO  r.n.c.CloudDriveApplicationTest - No active profile set, falling back to default profiles: default
+26.06.2021 13:55:11.457 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+26.06.2021 13:55:11.542 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 2 JPA repository interfaces.
+26.06.2021 13:55:12.134 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2b1cd7bc' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26.06.2021 13:55:12.151 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26.06.2021 13:55:12.619 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 0 (http)
+26.06.2021 13:55:12.639 [main] INFO  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+26.06.2021 13:55:12.641 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+26.06.2021 13:55:12.643 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+26.06.2021 13:55:12.821 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+26.06.2021 13:55:12.822 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2499 ms
+26.06.2021 13:55:13.119 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+26.06.2021 13:55:13.261 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+26.06.2021 13:55:13.787 [main] INFO  l.lockservice - Successfully acquired change log lock
+26.06.2021 13:55:15.025 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+26.06.2021 13:55:15.097 [main] INFO  l.lockservice - Successfully released change log lock
+26.06.2021 13:55:15.151 [main] INFO  l.lockservice - Successfully acquired change log lock
+26.06.2021 13:55:15.154 [main] WARN  liquibase.hub - Skipping auto-registration
+26.06.2021 13:55:15.182 [main] INFO  l.lockservice - Successfully released change log lock
+26.06.2021 13:55:15.341 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+26.06.2021 13:55:15.431 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+26.06.2021 13:55:15.660 [main] INFO  o.h.a.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+26.06.2021 13:55:15.841 [main] INFO  o.h.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+26.06.2021 13:55:17.685 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+26.06.2021 13:55:17.697 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+26.06.2021 13:55:18.276 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+26.06.2021 13:55:19.441 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure Ant [pattern='/**'] with []
+26.06.2021 13:55:19.555 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@59d8a968, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a44ad96, org.springframework.security.web.header.HeaderWriterFilter@828e2d8, org.springframework.security.web.authentication.logout.LogoutFilter@56d189d0, ru.netology.cloud_drive.component.JwtRequestFilter@13288174, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45bb502f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42102827, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14cd8dfa, org.springframework.security.web.session.SessionManagementFilter@19e67cc2, org.springframework.security.web.access.ExceptionTranslationFilter@70a26eca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@81f9b01]
+26.06.2021 13:55:19.928 [main] INFO  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+26.06.2021 13:55:19.963 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 51678 (http) with context path ''
+26.06.2021 13:55:19.974 [main] INFO  r.n.c.CloudDriveApplicationTest - Started CloudDriveApplicationTest in 10.301 seconds (JVM running for 58.842)
+26.06.2021 13:55:29.133 [main] WARN  r.n.c.r.CloudServiceRepository - File testFile5.txt exist
+26.06.2021 13:55:29.138 [main] INFO  r.n.c.r.CloudServiceRepository - File saved as testFile5(1).txt
+26.06.2021 13:55:29.181 [main] INFO  r.n.c.r.CloudServiceRepository - File saved as testFile1(1).txt
+26.06.2021 13:55:29.195 [main] WARN  r.n.c.r.CloudServiceRepository - File testFile1.txt exist
+26.06.2021 13:55:29.196 [main] INFO  r.n.c.r.CloudServiceRepository - File saved as testFile1(1).txt
+26.06.2021 13:55:29.214 [main] INFO  r.n.c.r.CloudServiceRepository - Repo_deleted. Deleted
+26.06.2021 13:55:29.220 [main] INFO  r.n.c.r.CloudServiceRepository - File saved as testFile4(1).txt
+26.06.2021 13:55:29.222 [main] INFO  r.n.c.r.CloudServiceRepository - Repository_download. Success download file testFile4.txt
+26.06.2021 13:55:29.245 [main] INFO  r.n.c.r.CloudServiceRepository - Repo_rename. Success rename file testNewFilename.txt
+26.06.2021 13:55:29.350 [main] INFO  r.n.c.c.CloudFilesController - Controller_renameFiles. FileName testFile1.txt
+26.06.2021 13:55:29.377 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [ru.netology.cloud_drive.controller.CloudControllerIntegrationTest], using SpringBootContextLoader
+26.06.2021 13:55:29.378 [main] INFO  o.s.t.c.s.AbstractContextLoader - Could not detect default resource locations for test class [ru.netology.cloud_drive.controller.CloudControllerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+26.06.2021 13:55:29.378 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [ru.netology.cloud_drive.controller.CloudControllerIntegrationTest]: CloudControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+26.06.2021 13:55:29.415 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration ru.netology.cloud_drive.CloudDriveApplication for test class ru.netology.cloud_drive.controller.CloudControllerIntegrationTest
+26.06.2021 13:55:29.424 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+26.06.2021 13:55:29.424 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1272f6d9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50aa482f, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2835574b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@63fcbf75, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@663d59ed, org.springframework.test.context.support.DirtiesContextTestExecutionListener@64d49e35, org.springframework.test.context.transaction.TransactionalTestExecutionListener@665902eb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@60580e42, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ca6d195, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2cc3df02, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2a3de2b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@22a9fa23, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7859bd9a, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4ad0465c, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@561e8bab]
+26.06.2021 13:55:29.486 [main] INFO  r.n.c.c.CloudControllerIntegrationTest - Starting CloudControllerIntegrationTest using Java 14.0.2 on MacBook-Pro-Alexey.local with PID 2826 (started by alexey in /Users/alexey/Desktop/CloudDrive/cloud_drive)
+26.06.2021 13:55:29.488 [main] INFO  r.n.c.c.CloudControllerIntegrationTest - No active profile set, falling back to default profiles: default
+26.06.2021 13:55:29.709 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+26.06.2021 13:55:29.725 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 2 JPA repository interfaces.
+26.06.2021 13:55:29.824 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1c93f349' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26.06.2021 13:55:29.832 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26.06.2021 13:55:29.904 [main] INFO  c.z.h.HikariDataSource - HikariPool-2 - Starting...
+26.06.2021 13:55:29.915 [main] INFO  c.z.h.HikariDataSource - HikariPool-2 - Start completed.
+26.06.2021 13:55:29.994 [main] INFO  l.lockservice - Successfully acquired change log lock
+26.06.2021 13:55:30.055 [main] INFO  liquibase.changelog - Creating database history table with name: public.databasechangelog
+26.06.2021 13:55:30.065 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+26.06.2021 13:55:30.098 [main] INFO  l.lockservice - Successfully released change log lock
+26.06.2021 13:55:30.105 [main] INFO  l.lockservice - Successfully acquired change log lock
+26.06.2021 13:55:30.106 [main] WARN  liquibase.hub - Skipping auto-registration
+26.06.2021 13:55:30.155 [main] INFO  liquibase.changelog - Custom SQL executed
+26.06.2021 13:55:30.157 [main] INFO  liquibase.changelog - ChangeSet /db/changelog/migrations/001-schemas user and storage.sql::raw::includeAll ran successfully in 49ms
+26.06.2021 13:55:30.165 [main] INFO  liquibase.changelog - New row inserted into user_data
+26.06.2021 13:55:30.167 [main] INFO  liquibase.changelog - New row inserted into user_data
+26.06.2021 13:55:30.168 [main] INFO  liquibase.changelog - ChangeSet db/changelog/migrations/002-fill_user.xml::001::Alexey ran successfully in 5ms
+26.06.2021 13:55:30.174 [main] INFO  liquibase.changelog - New row inserted into storage
+26.06.2021 13:55:30.175 [main] INFO  liquibase.changelog - New row inserted into storage
+26.06.2021 13:55:30.176 [main] INFO  liquibase.changelog - ChangeSet db/changelog/migrations/003-fill_storage.xml::002::Alexey ran successfully in 5ms
+26.06.2021 13:55:30.180 [main] INFO  liquibase.changelog - New row inserted into storage
+26.06.2021 13:55:30.182 [main] INFO  liquibase.changelog - New row inserted into storage
+26.06.2021 13:55:30.183 [main] INFO  liquibase.changelog - ChangeSet db/changelog/migrations/004-fill_storage.xml::003::Alexey ran successfully in 5ms
+26.06.2021 13:55:30.188 [main] INFO  l.lockservice - Successfully released change log lock
+26.06.2021 13:55:30.231 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+26.06.2021 13:55:30.238 [main] INFO  o.h.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+26.06.2021 13:55:30.336 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+26.06.2021 13:55:30.336 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+26.06.2021 13:55:30.428 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+26.06.2021 13:55:30.750 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure Ant [pattern='/**'] with []
+26.06.2021 13:55:30.805 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21e72fb2, org.springframework.security.web.context.SecurityContextPersistenceFilter@c5dc3db, org.springframework.security.web.header.HeaderWriterFilter@222557fc, org.springframework.security.web.authentication.logout.LogoutFilter@3699c795, ru.netology.cloud_drive.component.JwtRequestFilter@5ac168e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2910c3ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2182ebc7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@219a9b16, org.springframework.security.web.session.SessionManagementFilter@6c633590, org.springframework.security.web.access.ExceptionTranslationFilter@3e4d197, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@589c648]
+26.06.2021 13:55:31.033 [main] INFO  r.n.c.c.CloudControllerIntegrationTest - Started CloudControllerIntegrationTest in 1.589 seconds (JVM running for 69.901)
+26.06.2021 13:55:31.059 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+26.06.2021 13:55:31.059 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+26.06.2021 13:55:31.060 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+26.06.2021 13:55:31.135 [main] INFO  r.n.c.CloudDriveApplication - User null logged out of CloudDrive. JWT is disabled.
+26.06.2021 13:55:31.137 [main] INFO  r.n.c.CloudDriveApplication - User User authorizated in CloudDrive. JWT: Bearer_testAuthToken
+26.06.2021 13:55:31.190 [main] INFO  r.n.c.s.CloudFilesService - Service_upload. Success upload testFile1.txt
+26.06.2021 13:55:31.192 [main] INFO  r.n.c.s.CloudFilesService - Service_download. Success download file testFile1.txt
+26.06.2021 13:55:31.194 [main] INFO  r.n.c.s.CloudFilesService - Service_delete. Success deleted testFile1.txt
+26.06.2021 13:55:31.195 [main] INFO  r.n.c.s.CloudFilesService - Service_rename. Success rename file testFile1_NEW.txt
+26.06.2021 13:55:31.208 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+26.06.2021 13:55:31.210 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-2 - Shutdown initiated...
+26.06.2021 13:55:31.214 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-2 - Shutdown completed.
+26.06.2021 13:55:31.230 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+26.06.2021 13:55:31.232 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+26.06.2021 13:55:31.236 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+26.06.2021 11:57:21.391 [background-preinit] INFO  o.h.v.i.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+26.06.2021 11:57:21.564 [main] INFO  r.n.c.CloudDriveApplication - Starting CloudDriveApplication v0.0.1-SNAPSHOT using Java 11.0.11 on 054405da0cf0 with PID 1 (/cloud_drive_docker.jar started by root in /)
+26.06.2021 11:57:21.593 [main] INFO  r.n.c.CloudDriveApplication - No active profile set, falling back to default profiles: default
+26.06.2021 11:57:26.141 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+26.06.2021 11:57:26.722 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 457 ms. Found 2 JPA repository interfaces.
+26.06.2021 11:57:28.215 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2b491fee' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26.06.2021 11:57:28.228 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+26.06.2021 11:57:29.075 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+26.06.2021 11:57:29.118 [main] INFO  o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+26.06.2021 11:57:29.121 [main] INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+26.06.2021 11:57:29.123 [main] INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+26.06.2021 11:57:29.257 [main] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+26.06.2021 11:57:29.261 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7433 ms
+26.06.2021 11:57:29.767 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Starting...
+26.06.2021 11:57:30.544 [main] INFO  c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+26.06.2021 11:57:31.978 [main] INFO  l.lockservice - Successfully acquired change log lock
+26.06.2021 11:57:33.957 [main] INFO  liquibase.changelog - Reading from public.databasechangelog
+26.06.2021 11:57:34.265 [main] INFO  l.lockservice - Successfully released change log lock
+26.06.2021 11:57:34.290 [main] INFO  l.lockservice - Successfully acquired change log lock
+26.06.2021 11:57:34.294 [main] WARN  liquibase.hub - Skipping auto-registration
+26.06.2021 11:57:34.347 [main] INFO  l.lockservice - Successfully released change log lock
+26.06.2021 11:57:34.599 [main] INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+26.06.2021 11:57:34.794 [main] INFO  o.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+26.06.2021 11:57:35.606 [main] INFO  o.h.a.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+26.06.2021 11:57:36.207 [main] INFO  o.h.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+26.06.2021 11:57:38.432 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+26.06.2021 11:57:38.462 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+26.06.2021 11:57:39.714 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+26.06.2021 11:57:40.088 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure Ant [pattern='/**'] with []
+26.06.2021 11:57:40.178 [main] INFO  o.s.s.w.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53aa2fc9, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a4f8009, org.springframework.security.web.header.HeaderWriterFilter@4e8b357d, org.springframework.security.web.authentication.logout.LogoutFilter@5df7e31b, ru.netology.cloud_drive.component.JwtRequestFilter@47acd13b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8054fe2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bf80c29, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4792f119, org.springframework.security.web.session.SessionManagementFilter@2401856, org.springframework.security.web.access.ExceptionTranslationFilter@5fdfe8cf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69364b2d]
+26.06.2021 11:57:40.920 [main] INFO  o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+26.06.2021 11:57:40.990 [main] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+26.06.2021 11:57:41.054 [main] INFO  r.n.c.CloudDriveApplication - Started CloudDriveApplication in 21.569 seconds (JVM running for 27.251)
+26.06.2021 11:57:48.940 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+26.06.2021 11:57:48.942 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+26.06.2021 11:57:48.945 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 2 ms
+26.06.2021 11:57:48.961 [http-nio-8080-exec-1] WARN  r.n.c.c.JwtRequestFilter - JWT Token does not begin with Bearer String
+26.06.2021 11:57:49.773 [http-nio-8080-exec-1] INFO  r.n.c.CloudDriveApplication - User Alexey authorizated in CloudDrive. JWT: eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2MjQ3MTU4NjksImlhdCI6MTYyNDcwODY2OX0.1c2njov2Fs12_y72wY-q1Cd0icaKJojsv59acbSnmf8nJ1nLQUODyQwydnKGJ_rVEtnwF5yYDtjA9_YcE1d-Rg
+26.06.2021 11:57:55.860 [http-nio-8080-exec-3] INFO  r.n.c.s.CloudFilesService - Service_upload. Success upload SSH keys.docx
+26.06.2021 11:58:17.386 [http-nio-8080-exec-5] INFO  r.n.c.r.CloudServiceRepository - Repository_download. Success download file SSH keys.docx
+26.06.2021 11:58:17.391 [http-nio-8080-exec-5] INFO  r.n.c.s.CloudFilesService - Service_download. Success download file SSH keys.docx
+26.06.2021 11:58:31.952 [http-nio-8080-exec-6] INFO  r.n.c.c.CloudFilesController - Controller_renameFiles. FileName 255.docx
+26.06.2021 11:58:31.980 [http-nio-8080-exec-6] INFO  r.n.c.r.CloudServiceRepository - Repo_rename. Success rename file 255.docx
+26.06.2021 11:58:32.000 [http-nio-8080-exec-6] INFO  r.n.c.s.CloudFilesService - Service_rename. Success rename file 255.docx
+26.06.2021 11:58:38.201 [http-nio-8080-exec-7] WARN  r.n.c.c.JwtRequestFilter - JWT Token does not begin with Bearer String
+26.06.2021 11:58:38.271 [http-nio-8080-exec-8] INFO  r.n.c.r.CloudServiceRepository - Repo_deleted. Deleted
+26.06.2021 11:58:38.304 [http-nio-8080-exec-8] INFO  r.n.c.s.CloudFilesService - Service_delete. Success deleted 255.docx
+26.06.2021 11:58:46.915 [http-nio-8080-exec-10] INFO  r.n.c.CloudDriveApplication - User Alexey logged out of CloudDrive. JWT is disabled.
+26.06.2021 11:59:14.594 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+26.06.2021 11:59:14.601 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+26.06.2021 11:59:14.650 [SpringContextShutdownHook] INFO  c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

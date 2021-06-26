@@ -1,9 +1,13 @@
 package ru.netology.cloud_drive.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
+import ru.netology.cloud_drive.CloudDriveApplication;
+import ru.netology.cloud_drive.controller.CloudFilesController;
 import ru.netology.cloud_drive.exception.ErrorDeleteFile;
 import ru.netology.cloud_drive.exception.ErrorUnauthorized;
 import ru.netology.cloud_drive.exception.ErrorUploadFile;
@@ -30,6 +34,8 @@ public class CloudServiceRepository {
     @Value("${download.user.folder.path}")
     private String downloadUserPath;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CloudServiceRepository.class);
+
     @Autowired
     public CloudServiceRepository(UserDataRepository userDataRepository,
                                   StorageRepository storageRepository) {
@@ -52,7 +58,7 @@ public class CloudServiceRepository {
         if (currentUser.getIsEnable()) {
             return currentUser;
         } else {
-            System.out.println("User not found");
+            LOGGER.error("User not found");
             throw new ErrorUnauthorized("Unauthorized error");
         }
     }
@@ -62,7 +68,7 @@ public class CloudServiceRepository {
         if (currentUser.getIsEnable()) {
             return currentUser.getId();
         } else {
-            System.out.println("User not found");
+            LOGGER.error("User not found");
             throw new ErrorUnauthorized("Unauthorized error");
         }
     }
@@ -85,19 +91,18 @@ public class CloudServiceRepository {
 
     public Boolean deleteFile(String filename, long userId) {
         if (!existFileStorage(userId, filename)) {
-            System.out.println("File not found");
+            LOGGER.error("File not found");
             throw new ErrorDeleteFile("Error delete file");
         }
         Storage currentStorage = storageRepository.findByFilenameAndUserId(filename, userId);
         long currentId = currentStorage.getId();
-        System.out.println("Repo_deleted. Id " + currentId);
         File currentFile = new File(getAbsolutePathFile(userId, filename));
         storageRepository.deleteById(currentId);
         if (!storageRepository.existsById(currentId) && currentFile.delete()) {
-            System.out.println("Repo_deleted. Deleted");
+            LOGGER.info("Repo_deleted. Deleted");
             return true;
         }
-        System.out.println("Repo_deleted. No deleted");
+        LOGGER.error("Repo_deleted. No deleted");
         return false;
     }
 
@@ -105,7 +110,7 @@ public class CloudServiceRepository {
         Storage currentStorage = storageRepository.findByFilenameAndUserId(currentFilename, userId);
         UserData currentUser = userDataRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
         if (!existFileStorage(userId, currentFilename)) {
-            System.out.println("File not found");
+            LOGGER.error("File not found");
             throw new ErrorUploadFile("Error upload file");
         }
         if (currentStorage.getIsExist() && (currentUser != null)) {
@@ -113,6 +118,7 @@ public class CloudServiceRepository {
             File newFile = new File(getAbsolutePath(userId) + File.separator + newFilename);
             if (currentFile.renameTo(newFile)) {
                 currentStorage.setFilename(newFilename);
+                LOGGER.info("Repo_rename. Success rename file {}", newFilename);
                 return true;
             }
         }
@@ -153,7 +159,7 @@ public class CloudServiceRepository {
 
     public boolean downloadFileFromServer(long userId, String filename) {
         if (!existFileStorage(userId, filename)) {
-            System.out.println("File not found");
+            LOGGER.error("Error download file");
             throw new ErrorUploadFile("Error download file");
         }
         String downloadPathUser = downloadUserPath + File.separator;
@@ -167,11 +173,10 @@ public class CloudServiceRepository {
              var bosUser = new BufferedOutputStream(outUser, 1024)
         ) {
             int i;
-            System.out.println("Loading file...");
             while ((i = bis.read()) != -1) {
                 bosUser.write(i);
             }
-            System.out.println("Repository_download. Success download file " + filename);
+            LOGGER.info("Repository_download. Success download file {}", filename);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -192,14 +197,14 @@ public class CloudServiceRepository {
     public String checkFilenameStorage(long userId, String filename) {
         String newFilename = filename;
         if (existFileStorage(userId, filename)) {
-            System.out.printf("File %s exist\n", filename);
+            LOGGER.warn("File {} exist", filename);
             int i = 0;
             while (true) {
                 i++;
                 String[] partsName = filename.split("\\.");
                 newFilename = partsName[0] + "(" + i + ")." + partsName[1];
                 if (!existFileStorage(userId, newFilename)) {
-                    System.out.printf("File saved as %s\n", newFilename);
+                    LOGGER.info("File saved as {}", newFilename);
                     break;
                 }
             }
@@ -230,7 +235,7 @@ public class CloudServiceRepository {
                 String[] partsName = filename.split("\\.");
                 newFilename = partsName[0] + "(" + i + ")." + partsName[1];
                 if (!existFileFolder(path, newFilename)) {
-                    System.out.printf("File saved as %s\n", newFilename);
+                    LOGGER.info("File saved as {}", newFilename);
                     break;
                 }
             }

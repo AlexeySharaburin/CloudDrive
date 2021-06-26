@@ -1,4 +1,4 @@
-version: "4.0"
+version: "5.0"
 
 services:
 
@@ -12,8 +12,8 @@ services:
 
   app:
     build:
-          context: ./
-          dockerfile: Dockerfile
+      context: ./
+      dockerfile: Dockerfile
     container_name: cloud_drive
     ports:
       - 8080:8080
@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db/cloud_drive
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db/cloud_drive_storage
 
   db:
     image: postgres
@@ -30,9 +30,9 @@ services:
     ports:
       - 5433:5432
     volumes:
-      - ./postgres_db:/var/lib/postgresql/data
+      - ./storage_db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: alexey
       POSTGRES_PASSWORD: 123
-      POSTGRES_DB: cloud_drive
+      POSTGRES_DB: cloud_drive_storage
 

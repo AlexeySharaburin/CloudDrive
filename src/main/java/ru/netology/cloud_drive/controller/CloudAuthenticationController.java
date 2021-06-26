@@ -1,9 +1,12 @@
 package ru.netology.cloud_drive.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import ru.netology.cloud_drive.CloudDriveApplication;
 import ru.netology.cloud_drive.model.AuthRequest;
 import ru.netology.cloud_drive.model.AuthToken;
 import ru.netology.cloud_drive.service.CloudAuthenticationService;
@@ -22,12 +25,10 @@ public class CloudAuthenticationController {
 
     @GetMapping("/encode")
     public String encodePassword(String password) {
-        System.out.println("Ваш пароль: " + password);
         int strength = 10; // work factor of bcrypt
         BCryptPasswordEncoder bCryptPasswordEncoder =
                 new BCryptPasswordEncoder(strength, new SecureRandom());
         String encodePassword = bCryptPasswordEncoder.encode(password);
-        System.out.println("Ваш закодированный пароль: " + encodePassword);
         return encodePassword;
     }
 

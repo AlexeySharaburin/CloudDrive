@@ -3,17 +3,22 @@ package ru.netology.cloud_drive.service;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import ru.netology.cloud_drive.CloudDriveApplication;
 
 import java.io.*;
 import java.nio.file.Files;
 
 public class MultipartFileService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(CloudDriveApplication.class);
+
     public static MultipartFile convertFiletoMultiPart(String pathFile) throws IOException {
         File file = new File(pathFile);
-        System.out.println("Path: " + file.toPath());
+//        System.out.println("Path: " + file.toPath());
         FileItem fileItem;
         fileItem = new DiskFileItem("mainFile",
                 Files.probeContentType(file.toPath()),
@@ -28,7 +33,7 @@ public class MultipartFileService {
             e.printStackTrace();
         }
         fileItem.getOutputStream();
-        System.out.println("FileItem: " + fileItem.toString());
+//        System.out.println("FileItem: " + fileItem.toString());
         return new CommonsMultipartFile(fileItem);
     }
 }

@@ -34,7 +34,7 @@ public class CloudDriveApplicationTest {
     public static PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres")
             .withNetwork(cloudNetwork)
             .withNetworkAliases("postgres_db")
-            .withDatabaseName("cloud_drive")
+            .withDatabaseName("cloud_drive_storage")
             .withUsername("alexey")
             .withPassword("123");
 
@@ -42,7 +42,7 @@ public class CloudDriveApplicationTest {
     public static GenericContainer<?> backContainer = new GenericContainer<>("cloud_drive_app:latest")
             .withNetwork(cloudNetwork)
             .withExposedPorts(8080)
-            .withEnv(Map.of("SPRING_DATASOURCE_URL", "jdbc:postgresql://postgres_db:5432/cloud_drive"))
+            .withEnv(Map.of("SPRING_DATASOURCE_URL", "jdbc:postgresql://postgres_db:5432/cloud_drive_storage"))
             .dependsOn(postgresContainer);
 
     @Test
